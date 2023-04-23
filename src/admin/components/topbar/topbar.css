@@ -1,0 +1,17 @@
+.topbar{
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.dropdown img{
+    width: 30px;
+    margin-right: 5px;
+}
+.dropdown-toggle {
+    background-color: #fff!important;
+    font-size: 16px!important;
+    color: #000!important;
+    padding: 5px 15px!important;
+    border: none!important;
+}

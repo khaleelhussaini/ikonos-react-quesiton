@@ -1,0 +1,56 @@
+
+
+.main-body{
+    background-color: #ECECF1;
+    padding: 10px 25px 10px 10px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.main-card{
+    background-color: #fff;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.main-card thead tr th{
+    /* background-color:#0078D4; */
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: middle;
+   
+}
+.main-card tbody tr td{
+    color: #000;
+    font-size: 14px;
+    font-weight: normal;
+    vertical-align: middle;
+    
+}
+.main-card tbody tr td a{
+    color: red;
+}
+
+.edit svg{
+    color: darkgreen;
+    font-size: 15px;
+}
+.delete svg{
+    color: darkred;
+    font-size: 15px;
+}
+
+.mt-50{
+    margin-top: 10px;
+}
+.btn-new{
+    background-color: #0078D4!important;
+    font-size: 14px!important;
+    padding: 8px 25px!important;
+    border-radius: 2px!important;
+}
