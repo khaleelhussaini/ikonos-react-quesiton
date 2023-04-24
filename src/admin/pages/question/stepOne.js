@@ -1,48 +1,41 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useState, useEffect } from "react";
+import { Col, Form, Row } from "react-bootstrap";
 export default (props) => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-
-  //- using checkbox state to signal valid/not valid form state here:
-  // const [isValidState, setIsValidState] = useState(false)
-  // const signalParent = (isValid) => {
-  //   setIsValidState(isValid)
-  //   props.signalIfValid(isValid)
-  // }
-  // useEffect(() => {
-  //   console.log(`From Child, child in valid state?: ${isValidState}`)
-  //   signalParent(isValidState)
-  // }, [])
-
+  const [Persona, setPersona] = useState("");
   return (
     <div>
-      <div className='row'>
-        <div className='six columns'>
-          <label>First Name</label>
-          <input
-            className='u-full-width'
-            placeholder='First Name'
-            type='text'
-            onChange={e => setFirstName(e.target.value)}
-            value={firstName}
-            autoFocus
-          />
-        </div>
-      </div>
-      <div className='row'>
-        <div className='six columns'>
-          <label>Last Name</label>
-          <input
-            className='u-full-width'
-            placeholder='Last Name'
-            type='text'
-            onChange={e => setLastName(e.target.value)}
-            value={lastName}
-          />
-        </div>
-      </div>
-    
+      <Row>
+        <label>Persona</label>
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="radio"
+              label="CMO"
+              onChange={e => setPersona(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="radio"
+              label="Head of Marketing"
+              onChange={e => setPersona(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="radio"
+              label="Head of Creatives"
+              onChange={e => setPersona(e.target.value)}
+            />
+          </Form.Group>
+        </Col>
+        <Col></Col>
+        <Col></Col>
+      </Row>
     </div>
-  )
-}
+  );
+};

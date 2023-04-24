@@ -1,36 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { Row, Col, Form } from "react-bootstrap";
 
 export default () => {
-  const [email, setEmail] = useState('')
-  const [emailConfirm, setEmailConfirm] = useState('')
+  const [size, setSize] = useState("");
 
   return (
     <div>
-      <div className='row'>
-        <div className='six columns'>
-          <label>Your email</label>
-          <input
-            className='u-full-width required'
-            placeholder='test@mailbox.com'
-            type='email'
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-            autoFocus
-          />
-        </div>
-      </div>
-      <div className='row'>
-        <div className='six columns'>
-          <label>Confirm email</label>
-          <input
-            className='u-full-width'
-            placeholder='Confirm email'
-            type='email'
-            onChange={e => setEmailConfirm(e.target.value)}
-            value={emailConfirm}
-          />
-        </div>
-      </div>
+      <Row>
+        <Col md="4">
+          <h4>How big is the organization</h4>
+          <Row>
+            <Col>
+              <Form.Check
+                type="radio"
+                label="Small"
+                onChange={(e) => setSize(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Form.Check
+                type="radio"
+                label="Medium"
+                onChange={(e) => setSize(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Form.Check
+                type="radio"
+                label="Big"
+                onChange={(e) => setSize(e.target.value)}
+              />
+            </Col>
+          </Row>
+        </Col>
+        <Col md="4">
+          <h4>What is the core product</h4>
+          <textarea className="form-control" placeholder="Write about your products"></textarea>
+        </Col>
+        <Col md="4">
+          <h4>Who are you selling it to</h4>
+          <Form.Select aria-label="Default select example">
+      <option>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </Form.Select>
+        </Col>
+      </Row>
     </div>
-  )
-}
+  );
+};
