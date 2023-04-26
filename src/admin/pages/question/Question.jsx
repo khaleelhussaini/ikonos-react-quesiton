@@ -1,13 +1,14 @@
 import React from "react";
 import "../../admin.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { Row, Col, Table, Button } from "react-bootstrap";
+import { Row, Col, Button, Breadcrumb } from "react-bootstrap";
 import Topbar from "../../components/topbar/Topbar";
 import MultiStep from "react-multistep";
 import StepOne from "./stepOne";
 import StepTwo from "./stepTwo";
 import StepThree from "./stepThree";
 import StepFour from "./stepFour";
+import { Link } from "react-router-dom";
 function Question() {
   return (
     <div className="dashboard">
@@ -19,7 +20,20 @@ function Question() {
           <div className="main-body">
             <Topbar></Topbar>
             <div className="main-card">
-              <MultiStep
+              <Row>
+                <Col lg={10}>
+                  <Breadcrumb>
+                    <Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>
+                    <Breadcrumb.Item active>Question List</Breadcrumb.Item>
+                  </Breadcrumb>
+                </Col>
+                <Col>
+                  <Link to="/new-question">
+                    <Button className="btn btn-new">Add New Question</Button>
+                  </Link>
+                </Col>
+              </Row>
+              {/* <MultiStep
                 activeStep={0}
                 prevButton={{
                   style: { background: "red" },
@@ -31,7 +45,7 @@ function Question() {
                 <StepThree title="Pain with the content" />
                 <StepFour title="Brand and writing guide identification" />
                 <StepFour title="Brand Design" />
-              </MultiStep>
+              </MultiStep> */}
             </div>
           </div>
         </Col>
