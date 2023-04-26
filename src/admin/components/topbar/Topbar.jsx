@@ -2,6 +2,10 @@ import React from "react";
 import "./topbar.css";
 import { Col, Row, Dropdown, Image } from "react-bootstrap";
 import userimg from '../../../assets/images/user.png'
+import { Link } from "react-router-dom"
+import { FiLogOut } from 'react-icons/fi'
+import { BiUser } from 'react-icons/bi'
+
 function Topbar() {
   return (
     <div>
@@ -16,9 +20,11 @@ function Topbar() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item href="#/action-1"><BiUser/> Profile</Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to='/'> <FiLogOut/> Logout</Link>
+                </Dropdown.Item>
+                {/* <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
               </Dropdown.Menu>
             </Dropdown>
           </Col>

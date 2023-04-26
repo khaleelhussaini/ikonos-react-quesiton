@@ -48,9 +48,11 @@ function Login() {
                         <Link to="/">Forgot Your Password?</Link>
                       </Col>
                     </Row>
+                    <Link to='/dashboard'>
                     <Button className="btn btn-login" type="submit">
                       Submit
                     </Button>
+                    </Link>
                   </Form>
                 </div>
               </div>

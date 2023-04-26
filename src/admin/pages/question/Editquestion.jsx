@@ -8,15 +8,16 @@ import Dropdown from "../../components/questions/Dropdown";
 import Multiplechoice from "../../components/questions/Multiplechoice";
 import Textarea from "../../components/questions/Textarea";
 import { Link } from "react-router-dom";
+
 const options = [
   { value: "textarea", label: "Text Area" },
   { value: "multiplechoice", label: "Multiple Choice" },
   { value: "dropdown", label: "Drop Down" },
-  //{ value: "", label: "Radio Buttons" },
+  { value: "", label: "Radio Buttons" },
   // { value: "paragragh", label: "Multiple Choice" },
   // { value: "paragragh", label: "Multiple Choice" },
 ];
-class Newquestion extends React.Component {
+class Editquestion extends React.Component {
   constructor(props) {
     super(props);
 
@@ -30,17 +31,17 @@ class Newquestion extends React.Component {
 
   onChange = (e) => {
     this.set({ [e.target.name]: e.target.value });
-    // console.log([e.target.value]);
+    console.log([e.target.value]);
   };
 
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    //console.log("Option selected: ", selectedOption);
+    console.log("Option selected: ", selectedOption);
   };
 
   render() {
     const { selectedOption } = this.state;
-    // console.log(selectedOption);
+    console.log(selectedOption);
     return (
       <div className="dashboard">
         <Row>
@@ -50,11 +51,11 @@ class Newquestion extends React.Component {
           <Col xs lg={10} className="p-0">
             <div className="main-body">
               <Topbar></Topbar>
-              <div className="main-card ">
+              <div className="main-card">
                 <Row>
                   <Col lg={10}>
                     <Breadcrumb>
-                      <Breadcrumb.Item
+                    <Breadcrumb.Item
                         linkAs={Link}
                         linkProps={{ to: "/dashboard" }}
                       >
@@ -66,14 +67,14 @@ class Newquestion extends React.Component {
                       >
                         Question List
                       </Breadcrumb.Item>
-                      <Breadcrumb.Item active>New Question</Breadcrumb.Item>
+                      <Breadcrumb.Item active>Edit Question</Breadcrumb.Item>
                     </Breadcrumb>
                   </Col>
                 </Row>
               </div>
               <Row className="justify-content-md-center">
                 <Col lg={7}>
-                  <div className="main-card scroll-dev p-60">
+                  <div className="main-card p-60">
                     <Form>
                       <Form.Group className="mb-3">
                         <Form.Label>Select Category</Form.Label>
@@ -106,26 +107,26 @@ class Newquestion extends React.Component {
                       <Form.Group className="mb-3">
                         <Form.Label>Select Input Type</Form.Label>
                         <div>
-                          <Select
-                            value={selectedOption}
-                            onChange={this.handleChange}
-                            options={options}
-                            placeholder="Select a jobType..."
-                            isSearchable={options}
-                            className="form-control-select"
-                          />
-                        </div>
+                            <Select
+                              value={selectedOption}
+                              onChange={this.handleChange}
+                              options={options}
+                              placeholder="Select a jobType..."
+                              isSearchable={options}
+                              className="form-control-select"
+                            />
+                          </div>
                         <div>
                           {selectedOption &&
                           selectedOption.value === "textarea" ? (
                             <Textarea />
                           ) : selectedOption &&
                             selectedOption.value === "multiplechoice" ? (
-                            <Multiplechoice />
+                            <Multiplechoice/>
                           ) : selectedOption &&
-                            selectedOption.value === "dropdown" ? (
-                            <Dropdown />
-                          ) : null}
+                          selectedOption.value === "dropdown" ? (
+                          <Dropdown/>
+                        ) : null}
                         </div>
                       </Form.Group>
                       <Button className="btn btn-new" type="submit">
@@ -143,4 +144,4 @@ class Newquestion extends React.Component {
   }
 }
 
-export default Newquestion;
+export default Editquestion;

@@ -1,71 +1,167 @@
-
-
-.main-body{
-    background-color: #ECECF1;
-    padding: 10px 25px 10px 10px;
-    font-family: 'Roboto', sans-serif;
-
+.main-body {
+  background-color: #ececf1;
+  padding: 10px 25px 10px 10px;
+  font-family: "Roboto", sans-serif;
 }
 
-.main-card{
-    background-color: #fff;
-    margin-top: 10px;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+.main-card {
+  background-color: #fff;
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
-.main-card thead tr th{
-    /* background-color:#0078D4; */
-    background-color: #000;
-    color: #fff;
-    font-size: 14px;
-    font-weight: normal;
-    vertical-align: middle;
-   
+.main-card thead tr th {
+  /* background-color:#0078D4; */
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  vertical-align: middle;
 }
-.main-card tbody tr td{
-    color: #000;
-    font-size: 14px;
-    font-weight: normal;
-    vertical-align: middle;
-    
+.main-card tbody tr td {
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+  vertical-align: middle;
 }
-.main-card tbody tr td a{
-    color: red;
+.main-card tbody tr td a {
+  font-size: 18px;
+  text-align: center;
+  padding: 0px 7px;
+}
+.q-view svg {
+  color: darkgreen;
+}
+.q-edit svg {
+  color: darkgreen;
+}
+.q-delete svg {
+  color: darkred;
 }
 
-.edit svg{
-    color: darkgreen;
-    font-size: 15px;
+.mt-50 {
+  margin-top: 10px;
 }
-.delete svg{
-    color: darkred;
-    font-size: 15px;
+.btn-new {
+  background-color: #0078d4 !important;
+  font-size: 14px !important;
+  padding: 8px 25px !important;
+  border-radius: 2px !important;
+  width: 100% !important;
+}
+.p-60 {
+  padding: 50px;
+}
+.main-card .form-control {
+  height: 45px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.main-card label {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0px;
+  text-transform: capitalize;
 }
 
-.mt-50{
-    margin-top: 10px;
+.btn-question-add {
+  background-color: darkgreen !important;
+  width: auto !important;
+  padding: 10px 15px !important;
+  font-size: 14px !important;
+  border: none !important;
+  margin-left: 15px !important;
+  border-radius: 2px!important;
 }
-.btn-new{
-    background-color: #0078D4!important;
-    font-size: 14px!important;
-    padding: 8px 25px!important;
-    border-radius: 2px!important;
-    width: 100%!important;
+
+/* .form-control-select{
+    height: 100px;
+    background-color: red
+} */
+
+.breadcrumb {
+  padding: 7px 15px 0px 10px !important;
+  margin: 0px !important;
 }
-.p-60{
-    padding: 50px;
+.breadcrumb-item {
+  padding: 0px 5px !important;
+  margin: 0px !important;
+  text-decoration: none !important;
 }
-.main-card .form-control{
-    height: 45px;
-    border-radius: 2px;
-    font-size: 14px;
+.breadcrumb-item a {
+  text-decoration: none !important;
 }
-.main-card label{
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0px;
-    text-transform: capitalize;
+
+.modal-body h4 {
+  font-size: 17px;
+  color: #0078d4;
+}
+.modal-body p {
+  line-height: 2.1;
+}
+.modal-body p span {
+  color: #0078d4;
+}
+.modal-title {
+  font-size: 20px !important;
+}
+.btn-remove svg {
+  font-size: 24px;
+  color: #ff0000;
+  margin-right: 30px;
+}
+.scroll-dev {
+  min-height: 350px!important;
+  max-height: 520px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}   
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.delete-quesiton h5{
+    font-size: 20px;
+    color: #ff0000;
+    line-height: 1.7;
+    font-weight:500;
+    /* padding:45px */
+    margin-bottom: 24px
+}
+.delete-quesiton img{
+    width: 75px;
+    margin: 20px;
+}
+.cancel-delete{
+    background-color: #888!important;
+    color: #fff!important;
+    margin: 2px;
+    padding: 10px 35px!important;
+    border: none!important;
+}
+.confirm-delete{
+    background-color: #ff0000!important;
+    color: #fff!important;
+    margin: 2px;
+    padding: 10px 35px!important;
+    border: none!important;
 }
