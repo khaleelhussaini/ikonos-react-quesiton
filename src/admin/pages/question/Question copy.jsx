@@ -1,8 +1,13 @@
 import React from "react";
 import "../../admin.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { Row, Col, Button, Breadcrumb, Table } from "react-bootstrap";
+import { Row, Col, Button, Breadcrumb } from "react-bootstrap";
 import Topbar from "../../components/topbar/Topbar";
+import MultiStep from "react-multistep";
+import StepOne from "./stepOne";
+import StepTwo from "./stepTwo";
+import StepThree from "./stepThree";
+import StepFour from "./stepFour";
 import { Link } from "react-router-dom";
 function Question() {
   return (
@@ -28,27 +33,19 @@ function Question() {
                   </Link>
                 </Col>
               </Row>
-            </div>
-            <div className="main-card">
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Question Categogry</th>
-                    <th>Question</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                 
-                </tbody>
-              </Table>
+              {/* <MultiStep
+                activeStep={0}
+                prevButton={{
+                  style: { background: "red" },
+                  title: "prev step",
+                }}
+              >
+                <StepOne title="Persona" />
+                <StepTwo title="Knowing the company " />
+                <StepThree title="Pain with the content" />
+                <StepFour title="Brand and writing guide identification" />
+                <StepFour title="Brand Design" />
+              </MultiStep> */}
             </div>
           </div>
         </Col>
