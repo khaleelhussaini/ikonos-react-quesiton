@@ -5,6 +5,7 @@ import Dashboard from "./admin/pages/dashboard/Dashboard";
 import Question from "./admin/pages/question/Question";
 import Newquestion from "./admin/pages/question/Newquestion";
 import Editquestion from "./admin/pages/question/Editquestion";
+import Categorylist from "./admin/pages/question/Categorylist";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
           <Route path="/question" element={<Question/>} />
           <Route path="/new-question" element={<Newquestion/>} />
           <Route path="/edit-question" element={<Editquestion/>} />
+          <Route path="/category" element={<Categorylist/>} />
         </Routes>
       </Router>
     </div>

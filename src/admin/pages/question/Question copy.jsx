@@ -19,15 +19,13 @@ import { useTable, useExpanded, usePagination } from "react-table";
 import { CiCircleMore } from "react-icons/ci";
 import { BsTrash3, BsPrinter, BsPlusCircle } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
 // import { useDrag, useDrop } from 'react-dnd';
 // import { HTML5Backend } from 'react-dnd-html5-backend';
 function Question() {
   const [smShow, setSmShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
   const [qusShow, setQusShow] = useState(false);
-  const [rows, setRows] = useState([]);
+
   const columns = [
     {
       Header: "#",
@@ -56,20 +54,21 @@ function Question() {
       accessor: "action",
     },
   ];
+  
 
   const data = [
     {
       srno: "1",
       category: (
         <>
-          Knowing the company <span className="count">9</span>
+          Knowing the company <span className="count">4</span>
         </>
       ),
       question: "1) How big is the organization?",
       inputType: "Multiple Choice",
       action: (
         <>
-          <button className="btn btn-view">
+          <button className="btn btn-view" >
             <CiCircleMore />
           </button>{" "}
           <button className="btn btn-edit" onClick={() => setSmShow(true)}>
@@ -142,15 +141,14 @@ function Question() {
       srno: "2",
       category: (
         <>
-          Pain with the content <span className="count">8</span>
+          Pain with the content <span className="count">4</span>
         </>
       ),
-      question:
-        "1) How much content do you produce in a week. Feel free to provide a number for each type of content",
+      question: "1) How much content do you produce in a week. Feel free to provide a number for each type of content",
       inputType: "Number range",
       action: (
         <>
-          <button className="btn btn-view">
+          <button className="btn btn-view" >
             <CiCircleMore />
           </button>{" "}
           <button className="btn btn-edit">
@@ -182,8 +180,7 @@ function Question() {
         },
         {
           empty: "",
-          question:
-            "3) How much lead time does it take them on an average to create this from soup to nuts",
+          question: "3) How much lead time does it take them on an average to create this from soup to nuts",
           inputType: "Number range",
           action: (
             <>
@@ -224,14 +221,14 @@ function Question() {
       srno: "3",
       category: (
         <>
-          Brand & writing guide identification <span className="count">12</span>
+          Brand & writing guide identification <span className="count">4</span>
         </>
       ),
       question: "1) What is your brand voice /style - choose from options",
       inputType: "Choice",
       action: (
         <>
-          <button className="btn btn-view">
+          <button className="btn btn-view" >
             <CiCircleMore />
           </button>{" "}
           <button className="btn btn-edit" onClick={() => setSmShow(true)}>
@@ -310,7 +307,7 @@ function Question() {
       inputType: "Select file",
       action: (
         <>
-          <button className="btn btn-view">
+          <button className="btn btn-view" >
             <CiCircleMore />
           </button>{" "}
           <button className="btn btn-edit">
@@ -399,12 +396,10 @@ function Question() {
 
     // Add more data rows here
   ];
-  const Table = () => {
-    const tableInstance = useTable(
-      { columns, data },
-      useExpanded // add useExpanded hook
-    );
   
+  const Table = () => {
+    const tableInstance = useTable({ columns, data }, useExpanded);
+
     const {
       getTableProps,
       getTableBodyProps,
@@ -413,116 +408,44 @@ function Question() {
       prepareRow,
       state: { expanded },
     } = tableInstance;
-  
-    const [tableRows, setTableRows] = useState(rows);
-  
-    const onDragEnd = (result) => {
-      const { destination, source, draggableId } = result;
-  
-      if (!destination) {
-        return;
-      }
-  
-      if (
-        destination.droppableId === source.droppableId &&
-        destination.index === source.index
-      ) {
-        return;
-      }
-  
-      const newRows = [...tableRows];
-      const [removed] = newRows.splice(source.index, 1);
-      newRows.splice(destination.index, 0, removed);
-  
-      // Update the srno values based on the new order
-      newRows.forEach((row, index) => {
-        row.values.srno = index + 1;
-      });
-  
-      setTableRows(newRows);
-    };
-  
+
     return (
-      <DragDropContext onDragEnd={onDragEnd}>
-        <table {...getTableProps()} className="table">
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
-                    {column.render("Header")}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <Droppable droppableId="tableRows">
-            {(provided) => (
-              <tbody {...getTableBodyProps()} ref={provided.innerRef}>
-                {tableRows.map((row, index) => {
-                  prepareRow(row);
-                  return (
-                    <React.Fragment key={row.id}>
-                      <Draggable
-                        key={row.id}
-                        draggableId={row.id}
-                        index={index}
-                      >
-                        {(provided) => (
-                          <tr
-                            {...row.getRowProps()}
-                            className="questions-table"
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            {row.cells.map((cell) => (
-                              <td {...cell.getCellProps()}>
-                                {cell.render("Cell")}
-                              </td>
-                            ))}
-                          </tr>
-                        )}
-                      </Draggable>
-                      {row.isExpanded &&
-                        row.subRows.map((subRow, subIndex) => {
-                          prepareRow(subRow);
-                          return (
-                            <Draggable
-                              key={subRow.id}
-                              draggableId={subRow.id}
-                              index={index + subIndex + 1}
-                            >
-                              {(provided) => (
-                                <tr
-                                  {...subRow.getRowProps()}
-                                  className="questions-table sub-row"
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                >
-                                  {subRow.cells.map((cell) => (
-                                    <td {...cell.getCellProps()}>
-                                      {cell.render("Cell")}
-                                    </td>
-                                  ))}
-                                </tr>
-                              )}
-                            </Draggable>
-                          );
-                        })}
-                    </React.Fragment>
-                  );
-                })}
-                {provided.placeholder}
-              </tbody>
-            )}
-          </Droppable>
-        </table>
-      </DragDropContext>
+      <table {...getTableProps()} className="table">
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <>
+                <tr {...row.getRowProps()} className="questions-table">
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                  ))}
+                </tr>
+                {/* Render the expanded row if it is currently expanded */}
+                {/* {row.isExpanded ? (
+                  <tr >
+                    <td colSpan={columns.length}>
+                       You can render additional data for the expanded row here
+                    </td>
+                  </tr>
+                ) : null} */}
+              </>
+            );
+          })}
+        </tbody>
+      </table>
     );
   };
-  
+
   return (
     <div className="dashboard">
       <Row>
@@ -543,17 +466,10 @@ function Question() {
                 <Button className="btn btn-new-category"><BsPlusCircle /> Add New Question</Button>
                 </Col> */}
                 <Col className="pl-02 pr-02">
-                  <Button
-                    className="btn btn-new-qus"
-                    onClick={() => setQusShow(true)}
-                  >
-                    <BsPlusCircle /> Add New Question
-                  </Button>
+                <Button className="btn btn-new-qus" onClick={() => setQusShow(true)}><BsPlusCircle /> Add New Question</Button>
                 </Col>
                 <Col lg={1} className="pl-02 me-auto">
-                  <Button className="btn btn-print">
-                    <BsPrinter />
-                  </Button>
+                <Button className="btn btn-print"><BsPrinter/></Button>
                 </Col>
               </Row>
             </div>
@@ -609,7 +525,7 @@ function Question() {
               >
                 <Modal.Header closeButton>
                   <Modal.Title id="example-modal-sizes-title-lg">
-                    Add Question
+                   Add Question
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

@@ -1,3 +1,4 @@
+
 .main-body {
   background-color: #ececf1;
   padding: 10px 25px 10px 10px;
@@ -164,4 +165,87 @@
     margin: 2px;
     padding: 10px 35px!important;
     border: none!important;
+}
+.test{
+  background-color: red;
+}.plus:before {
+  content: "+";
+  float: left;
+  margin-right: 5px;
+}
+
+.minus:before {
+  content: "-";
+  float: left;
+  margin-right: 5px;
+}
+.pr-02{
+  padding-right:0px!important;
+}
+.pl-02{
+  padding-right: 0px!important;
+}
+
+.btn-new-category{
+  background-color: #333446!important;
+  width: 100%;
+  border: none!important;
+}
+.btn-new-qus{
+  background-color: #707070!important;
+  width: 100%;
+  border: none!important;
+}
+.btn-print{
+  background-color: #707070!important;
+  border: none!important;
+}
+.modal-60w{
+  width: 60%!important;
+}
+
+.question-form{
+  padding: 25px;
+}
+.question-form label{
+  color: #333446;
+  font-size: 15px;
+  font-weight: 600;
+}
+.question-form .form-control{
+  box-shadow: 0px 1px 4px #00000029;
+  height: 45px;
+  font-size: 13px;
+}
+.form-control-select{
+  box-shadow: 0px 1px 4px #00000029;
+  height: 45px;
+  font-size: 13px;
+}
+.modal-header{
+  background-color: #000;
+}
+.modal-title{
+  font-size: 16px!important;
+  color: #fff;
+}
+.btn-close{
+  background-color: #fff!important;
+  opacity: 1!important;
+}
+tr.questions-table td:nth-child(2){
+  color: #0179CD;
+}
+tr.questions-table td{
+  font-size: 13.5px!important;
+  font-weight: 500!important;
+}
+.count{
+  border: 2px solid #0078d4;
+  padding: 2px 15px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.btn{
+  padding: 0px;
 }

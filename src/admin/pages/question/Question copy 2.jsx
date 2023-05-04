@@ -399,11 +399,9 @@ function Question() {
 
     // Add more data rows here
   ];
+
   const Table = () => {
-    const tableInstance = useTable(
-      { columns, data },
-      useExpanded // add useExpanded hook
-    );
+    const tableInstance = useTable({ columns, data }, useExpanded);
   
     const {
       getTableProps,
@@ -414,7 +412,7 @@ function Question() {
       state: { expanded },
     } = tableInstance;
   
-    const [tableRows, setTableRows] = useState(rows);
+    const [tableRows, setTableRows] = useState(rows); // add state for rows
   
     const onDragEnd = (result) => {
       const { destination, source, draggableId } = result;
@@ -430,16 +428,11 @@ function Question() {
         return;
       }
   
-      const newRows = [...tableRows];
+      const newRows = [...tableRows]; // use tableRows state
       const [removed] = newRows.splice(source.index, 1);
       newRows.splice(destination.index, 0, removed);
   
-      // Update the srno values based on the new order
-      newRows.forEach((row, index) => {
-        row.values.srno = index + 1;
-      });
-  
-      setTableRows(newRows);
+      setTableRows(newRows); // update tableRows state
     };
   
     return (
@@ -459,10 +452,10 @@ function Question() {
           <Droppable droppableId="tableRows">
             {(provided) => (
               <tbody {...getTableBodyProps()} ref={provided.innerRef}>
-                {tableRows.map((row, index) => {
-                  prepareRow(row);
-                  return (
-                    <React.Fragment key={row.id}>
+                {tableRows.length > 0 &&
+                  tableRows.map((row, index) => {
+                    prepareRow(row);
+                    return (
                       <Draggable
                         key={row.id}
                         draggableId={row.id}
@@ -484,36 +477,9 @@ function Question() {
                           </tr>
                         )}
                       </Draggable>
-                      {row.isExpanded &&
-                        row.subRows.map((subRow, subIndex) => {
-                          prepareRow(subRow);
-                          return (
-                            <Draggable
-                              key={subRow.id}
-                              draggableId={subRow.id}
-                              index={index + subIndex + 1}
-                            >
-                              {(provided) => (
-                                <tr
-                                  {...subRow.getRowProps()}
-                                  className="questions-table sub-row"
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                >
-                                  {subRow.cells.map((cell) => (
-                                    <td {...cell.getCellProps()}>
-                                      {cell.render("Cell")}
-                                    </td>
-                                  ))}
-                                </tr>
-                              )}
-                            </Draggable>
-                          );
-                        })}
-                    </React.Fragment>
-                  );
-                })}
+                    );
+                  })}
+  
                 {provided.placeholder}
               </tbody>
             )}

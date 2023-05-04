@@ -43,101 +43,68 @@ class Newquestion extends React.Component {
     // console.log(selectedOption);
     return (
       <div className="dashboard">
-        <Row>
-          <Col xs lg={2} className="p-0">
-            <Sidebar></Sidebar>
-          </Col>
-          <Col xs lg={10} className="p-0">
-            <div className="main-body">
-              <Topbar></Topbar>
-              <div className="main-card ">
-                <Row>
-                  <Col lg={10}>
-                    <Breadcrumb>
-                      <Breadcrumb.Item
-                        linkAs={Link}
-                        linkProps={{ to: "/dashboard" }}
-                      >
-                        Dashboard
-                      </Breadcrumb.Item>
-                      <Breadcrumb.Item
-                        linkAs={Link}
-                        linkProps={{ to: "/question" }}
-                      >
-                        Question List
-                      </Breadcrumb.Item>
-                      <Breadcrumb.Item active>New Question</Breadcrumb.Item>
-                    </Breadcrumb>
-                  </Col>
-                </Row>
-              </div>
-              <Row className="justify-content-md-center">
-                <Col lg={7}>
-                  <div className="main-card scroll-dev p-60">
-                    <Form>
-                      <Form.Group className="mb-3">
-                        <Form.Label>Select Category</Form.Label>
-                        <Form.Select
-                          aria-label="Default select example"
-                          className="form-control"
-                        >
-                          <option>Open this select menu</option>
-                          <option value="Persona">Persona</option>
-                          <option value="Knowing the company">
-                            Knowing the company{" "}
-                          </option>
-                          <option value="Pain with the content">
-                            Pain with the content
-                          </option>
-                          <option value="Brand and writing guide identification">
-                            Brand and writing guide identification
-                          </option>
-                          <option value="Brand Desig">Brand Desig</option>
-                        </Form.Select>
-                      </Form.Group>
-
-                      {/* <Form.Group className="mb-3">
-                        <Form.Label>Question</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Write Your Question"
-                        />
-                      </Form.Group> */}
-                      <Form.Group className="mb-3">
-                        <Form.Label>Select Input Type</Form.Label>
-                        <div>
-                          <Select
-                            value={selectedOption}
-                            onChange={this.handleChange}
-                            options={options}
-                            placeholder="Select a jobType..."
-                            isSearchable={options}
-                            className="form-control-select"
-                          />
-                        </div>
-                        <div>
-                          {selectedOption &&
-                          selectedOption.value === "textarea" ? (
-                            <Textarea />
-                          ) : selectedOption &&
-                            selectedOption.value === "multiplechoice" ? (
-                            <Multiplechoice />
-                          ) : selectedOption &&
-                            selectedOption.value === "dropdown" ? (
-                            <Dropdown />
-                          ) : null}
-                        </div>
-                      </Form.Group>
-                      <Button className="btn btn-new" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
-                  </div>
-                </Col>
-              </Row>
+        <Form className="question-form">
+          <Form.Group className="mb-3">
+            <Form.Label>Select Industry</Form.Label>
+            <Form.Select
+              aria-label="Default select example"
+              className="form-control"
+            >
+              <option>Open this select menu</option>
+              <option value="Persona">Industry 1</option>
+              <option value="Knowing the company">Industry 2 </option>
+              <option value="Pain with the content">
+              Industry 3
+              </option>
+            
+             
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Select Category</Form.Label>
+            <Form.Select
+              aria-label="Default select example"
+              className="form-control"
+            >
+              <option>Open this select menu</option>
+              <option value="Persona">Persona</option>
+              <option value="Knowing the company">Knowing the company </option>
+              <option value="Pain with the content">
+                Pain with the content
+              </option>
+              <option value="Brand and writing guide identification">
+                Brand and writing guide identification
+              </option>
+              <option value="Brand Desig">Brand Desig</option>
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Select Input Type</Form.Label>
+            <div>
+              <Select
+                value={selectedOption}
+                onChange={this.handleChange}
+                options={options}
+                placeholder="Select a jobType..."
+                isSearchable={options}
+                className="form-control-select"
+              />
             </div>
-          </Col>
-        </Row>
+            <div>
+              {selectedOption && selectedOption.value === "textarea" ? (
+                <Textarea />
+              ) : selectedOption &&
+                selectedOption.value === "multiplechoice" ? (
+                <Multiplechoice />
+              ) : selectedOption && selectedOption.value === "dropdown" ? (
+                <Dropdown />
+              ) : null}
+            </div>
+          </Form.Group>
+          <Button className="btn btn-new" type="submit">
+            Submit
+          </Button>
+        </Form>
       </div>
     );
   }

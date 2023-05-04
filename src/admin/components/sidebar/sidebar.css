@@ -3,15 +3,7 @@
     background-color: #333547;
     padding: 0px;
 }
-.main-logo{
-    padding: 25px;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 600;
-}
-.main-logo img{
-    width: 40px;
-}
+
 .ps-sidebar-root{
     background-color: red!important;
 }
