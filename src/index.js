@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ProSidebarProvider } from 'react-pro-sidebar';
+//import { ProSidebarProvider } from 'react-pro-sidebar';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,11 +9,11 @@ import './assets/css/style.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-  //   <App />
+       <App />
   // </React.StrictMode>
-  <ProSidebarProvider>
-  <App />
-</ProSidebarProvider>
+//   <ProSidebarProvider>
+//   <App />
+// </ProSidebarProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

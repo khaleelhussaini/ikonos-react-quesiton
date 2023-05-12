@@ -2262,9 +2262,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@>= 16", "@types/react@>=16.14.8", "@types/react@>=16.9.11":
-  "integrity" "sha512-4GZH3GLuqdZbDvOW5Pqqe7jgsDrKwkJfZMZLwFcgoz3CVDSvnMeG/Ihe44IbZ5Mqhh1fyTh5e44z6pNjIzzV8g=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.2.2.tgz"
-  "version" "18.2.2"
+  "integrity" "sha512-IvAIhJTmKAAJmCIcaa6+5uagjyh+9GvcJ/thPZcw+i+vx+22eHlTy2Q1bJg/prES57jehjebq9DnIhOTtIhmLw=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.2.4.tgz"
+  "version" "18.2.4"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3783,7 +3783,7 @@
   dependencies:
     "cssom" "~0.3.6"
 
-"csstype@^3.0.10", "csstype@^3.0.2":
+"csstype@^3.0.2":
   "integrity" "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   "version" "3.1.2"
@@ -5073,11 +5073,6 @@
     "ignore" "^5.2.0"
     "merge2" "^1.4.1"
     "slash" "^3.0.0"
-
-"goober@2.1.12":
-  "integrity" "sha512-yXHAvO08FU1JgTXX6Zn6sYCUFfB/OJSX8HHjDSgerZHZmFKAb08cykp5LBw5QnmyMcZyPRMqkdyHUSSzge788Q=="
-  "resolved" "https://registry.npmjs.org/goober/-/goober-2.1.12.tgz"
-  "version" "2.1.12"
 
 "gopd@^1.0.1":
   "integrity" "sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA=="
@@ -8017,13 +8012,6 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
-"react-multistep@^5.5.8":
-  "integrity" "sha512-+LVbaGB4481Op7Bo3uzl5eLgPnjqz4OC0gPN843njVFgM6Exgk3ZE79EIwnX940tI73rKWLn4FBASQiH/nFkDw=="
-  "resolved" "https://registry.npmjs.org/react-multistep/-/react-multistep-5.5.8.tgz"
-  "version" "5.5.8"
-  dependencies:
-    "goober" "2.1.12"
-
 "react-pro-sidebar@^1.0.0":
   "integrity" "sha512-TAU3vHj0rYHSLWdZksiWte59dwh3rweaFY+dXri+y8mtlbQalxnNTG11k9wRCiaMa0IGPmIIbdY1E1yoHBUd/A=="
   "resolved" "https://registry.npmjs.org/react-pro-sidebar/-/react-pro-sidebar-1.0.0.tgz"
@@ -8151,7 +8139,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react@^16.8.3 || ^17 || ^18", "react@^16.8.3 || ^17.0.0-0 || ^18.0.0", "react@^16.8.5 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.14", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@18.2.0":
+"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react@^16.8.3 || ^17 || ^18", "react@^16.8.3 || ^17.0.0-0 || ^18.0.0", "react@^16.8.5 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.14", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

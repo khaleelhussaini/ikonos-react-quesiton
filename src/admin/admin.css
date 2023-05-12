@@ -249,3 +249,18 @@ tr.questions-table td{
 .btn{
   padding: 0px;
 }
+.btn-view, .btn-edit, .btn-trash{
+  padding: 0px 3px!important;
+}
+.btn-view svg{
+  color: green;
+}
+.btn-edit svg{
+  color: #0078d4;
+}
+.btn-trash svg{
+  color: #ff0000;
+}
+.btn-print{
+  background-color: #0078d4!important;
+}

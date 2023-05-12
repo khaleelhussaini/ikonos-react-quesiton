@@ -15,6 +15,9 @@ function Sidebar(props) {
               <Link to='/question'>Question Bank</Link>
             </li>
             <li>
+              <Link to='/category'>Industry Type</Link>
+            </li>
+            <li>
               <Link to='/category'>Category List</Link>
             </li>
           </ul>

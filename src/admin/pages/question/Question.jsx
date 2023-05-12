@@ -13,21 +13,17 @@ import {
   Table,
 } from "react-bootstrap";
 import Topbar from "../../components/topbar/Topbar";
-import { Link } from "react-router-dom";
 import waringimg from "../../../assets/images/warning.png";
-import { useTable, useExpanded, usePagination } from "react-table";
+import { useTable, useExpanded } from "react-table";
 import { CiCircleMore } from "react-icons/ci";
 import { BsTrash3, BsPrinter, BsPlusCircle } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-// import { useDrag, useDrop } from 'react-dnd';
-// import { HTML5Backend } from 'react-dnd-html5-backend';
 function Question() {
   const [smShow, setSmShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
   const [qusShow, setQusShow] = useState(false);
-  const [rows, setRows] = useState([]);
+  //const [rows, setRows] = useState([]);
   const columns = [
     {
       Header: "#",
@@ -399,6 +395,7 @@ function Question() {
 
     // Add more data rows here
   ];
+
   const Table = () => {
     const tableInstance = useTable(
       { columns, data },
@@ -433,12 +430,11 @@ function Question() {
       const newRows = [...tableRows];
       const [removed] = newRows.splice(source.index, 1);
       newRows.splice(destination.index, 0, removed);
-  
-      // Update the srno values based on the new order
-      newRows.forEach((row, index) => {
+  	
+	newRows.forEach((row, index) => {
         row.values.srno = index + 1;
       });
-  
+
       setTableRows(newRows);
     };
   
@@ -459,61 +455,52 @@ function Question() {
           <Droppable droppableId="tableRows">
             {(provided) => (
               <tbody {...getTableBodyProps()} ref={provided.innerRef}>
-                {tableRows.map((row, index) => {
-                  prepareRow(row);
-                  return (
-                    <React.Fragment key={row.id}>
-                      <Draggable
-                        key={row.id}
-                        draggableId={row.id}
-                        index={index}
-                      >
-                        {(provided) => (
-                          <tr
-                            {...row.getRowProps()}
-                            className="questions-table"
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            {row.cells.map((cell) => (
-                              <td {...cell.getCellProps()}>
-                                {cell.render("Cell")}
-                              </td>
-                            ))}
-                          </tr>
-                        )}
-                      </Draggable>
-                      {row.isExpanded &&
-                        row.subRows.map((subRow, subIndex) => {
-                          prepareRow(subRow);
-                          return (
-                            <Draggable
-                              key={subRow.id}
-                              draggableId={subRow.id}
-                              index={index + subIndex + 1}
+                {tableRows.length > 0 &&
+                  tableRows.map((row, index) => {
+                    prepareRow(row);
+                    return (
+                      <React.Fragment key={row.id}>
+                        <Draggable
+                          key={row.id}
+                          draggableId={row.id}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <tr
+                              {...row.getRowProps()}
+                              className="questions-table"
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
                             >
-                              {(provided) => (
-                                <tr
-                                  {...subRow.getRowProps()}
-                                  className="questions-table sub-row"
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                >
-                                  {subRow.cells.map((cell) => (
-                                    <td {...cell.getCellProps()}>
-                                      {cell.render("Cell")}
-                                    </td>
-                                  ))}
-                                </tr>
-                              )}
-                            </Draggable>
-                          );
-                        })}
-                    </React.Fragment>
-                  );
-                })}
+                              {row.cells.map((cell) => (
+                                <td {...cell.getCellProps()}>
+                                  {cell.render("Cell")}
+                                </td>
+                              ))}
+                            </tr>
+                          )}
+                        </Draggable>
+                        {/* Render sub-rows for expanded parent rows */}
+                        {row.isExpanded &&
+                          row.subRows.map((subRow) => {
+                            prepareRow(subRow);
+                            return (
+                              <tr
+                                {...subRow.getRowProps()}
+                                className="questions-table sub-row"
+                              >
+                                {subRow.cells.map((cell) => (
+                                  <td {...cell.getCellProps()}>
+                                    {cell.render("Cell")}
+                                  </td>
+                                ))}
+                              </tr>
+                            );
+                          })}
+                      </React.Fragment>
+                    );
+                  })}
                 {provided.placeholder}
               </tbody>
             )}
@@ -522,6 +509,8 @@ function Question() {
       </DragDropContext>
     );
   };
+  
+  
   
   return (
     <div className="dashboard">

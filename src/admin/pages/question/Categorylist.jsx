@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from "react";
 import "../../admin.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import NewQuestion from "./Newquestion";
-import EditQuestion from "./Editquestion";
 import {
   Row,
   Col,
@@ -14,16 +12,12 @@ import {
   Table,
 } from "react-bootstrap";
 import Topbar from "../../components/topbar/Topbar";
-import { Link } from "react-router-dom";
 import waringimg from "../../../assets/images/warning.png";
-import { useTable, useExpanded, usePagination } from "react-table";
+import { useTable } from "react-table";
 import { CiCircleMore } from "react-icons/ci";
 import { BsTrash3, BsPrinter, BsPlusCircle } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-// import { useDrag, useDrop } from 'react-dnd';
-// import { HTML5Backend } from 'react-dnd-html5-backend';
 function Question() {
   const [smShow, setSmShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
@@ -31,6 +25,10 @@ function Question() {
   function QuestionTable({ data }) {
     const columns = React.useMemo(
       () => [
+        {
+          Header: "#",
+          accessor: "srno",
+        },
         {
           Header: "Question Category",
           accessor: "category",
@@ -88,6 +86,7 @@ function Question() {
   const data = [
     {
       id: "1",
+      srno: "1",
       category: "Knowing the company",
       numQuestions: 9,
       action: (
@@ -106,6 +105,7 @@ function Question() {
     },
     {
       id: "2",
+      srno: "2",
       category: "Pain with the content",
       numQuestions: 8,
       action: (
@@ -124,6 +124,7 @@ function Question() {
     },
     {
       id: "3",
+      srno: "3",
       category: "Brand and writing guide identification",
       numQuestions: 12,
       action: (
@@ -142,6 +143,7 @@ function Question() {
     },
     {
       id: "4",
+      srno: "4",
       category: "Brand Design",
       numQuestions: 5,
       action: (
